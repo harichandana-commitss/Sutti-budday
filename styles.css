@@ -1,11 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;500&family=Noto+Serif+Telugu:wght@400;500&display=swap');
 :root { --ink:#25372d; --paper:#fbf8ec; --coral:#d9896f; --pink:#e5d8c2; --lav:#cbd8bf; --yellow:#eadb95; --mint:#c4d9c4; --sage:#dce8d5; --moss:#44634e; --forest:#1d392b; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { margin:0; background:var(--paper); color:var(--ink); font-family:Manrope, sans-serif; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:Manrope,"Noto Sans Telugu",sans-serif; }
 .hero { min-height:100vh; padding:55px 7vw 45px; position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; background:var(--sage); }
 .eyebrow,.date,.section-number { font:500 10px/1.4 "DM Mono",monospace; letter-spacing:.12em; text-transform:uppercase; }
 .date { margin:14px 0 29px; color:var(--moss); }
-h1,h2 { font-family:"DM Serif Display",serif; font-weight:400; letter-spacing:-.045em; margin:0; line-height:.94; }
+h1,h2 {font-family:"DM Serif Display","Noto Serif Telugu",serif; font-weight:400; letter-spacing:-.045em; margin:0; line-height:.94; }
 h1 { font-size:clamp(4.3rem,10vw,9.8rem); max-width:900px; position:relative; z-index:1; }
 em { color:var(--moss); font-style:italic; }
 .hero-copy { max-width:425px; margin:32px 0; font-size:15px; line-height:1.75; position:relative; z-index:1; }
