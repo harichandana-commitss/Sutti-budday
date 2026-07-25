@@ -1,0 +1,355 @@
+:root { --ink:#25372d; --paper:#fbf8ec; --coral:#d9896f; --pink:#e5d8c2; --lav:#cbd8bf; --yellow:#eadb95; --mint:#c4d9c4; --sage:#dce8d5; --moss:#44634e; --forest:#1d392b; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:Manrope, sans-serif; }
+.hero { min-height:100vh; padding:55px 7vw 45px; position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; background:var(--sage); }
+.eyebrow,.date,.section-number { font:500 10px/1.4 "DM Mono",monospace; letter-spacing:.12em; text-transform:uppercase; }
+.date { margin:14px 0 29px; color:var(--moss); }
+h1,h2 { font-family:"DM Serif Display",serif; font-weight:400; letter-spacing:-.045em; margin:0; line-height:.94; }
+h1 { font-size:clamp(4.3rem,10vw,9.8rem); max-width:900px; position:relative; z-index:1; }
+em { color:var(--moss); font-style:italic; }
+.hero-copy { max-width:425px; margin:32px 0; font-size:15px; line-height:1.75; position:relative; z-index:1; }
+.scroll-link,.wish-button { color:var(--ink); text-decoration:none; border:1px solid currentColor; padding:14px 18px; background:transparent; font:500 11px "DM Mono",monospace; text-transform:uppercase; letter-spacing:.06em; cursor:pointer; transition:background .25s,color .25s,transform .25s; position:relative; z-index:1; }
+.scroll-link:hover,.wish-button:hover { background:var(--ink); color:var(--paper); transform:translateY(-3px); }
+.scroll-link span,.wish-button span { margin-left:12px; font-size:16px; }
+.leaf { position:absolute; color:var(--moss); font-size:35px; animation:float 4s ease-in-out infinite; }.leaf-one{top:15%;right:17%}.leaf-two{right:8%;bottom:24%;font-size:58px;animation-delay:-2s;color:#789968}.leaf-three{left:8%;bottom:16%;font-size:25px;animation-delay:-1s;color:#9a7044}
+.hero-orbit { position:absolute; border:1px solid rgba(68,99,78,.3); border-radius:50%; }.orbit-a { width:45vw;height:45vw;min-width:460px;min-height:460px;right:-18vw;top:18%; }.orbit-b { width:65vw;height:65vw;min-width:620px;min-height:620px;right:-30vw;top:4%; }
+.section { padding:120px 7vw; }.letter { background:var(--paper); }.letter-layout { margin-top:50px; display:grid; grid-template-columns:1.1fr .8fr; gap:10%; align-items:start; }.letter h2,.section-heading h2,.wish h2 { font-size:clamp(3.6rem,7vw,7rem); }.letter-copy { font-size:15px; line-height:1.9; }.letter-copy p:first-child{margin-top:0}.signature { font-family:"DM Serif Display",serif; font-size:23px; line-height:1.35; margin-top:40px; color:var(--coral); }
+.years { background:var(--forest); color:var(--paper); }.years-intro { max-width:740px; }.years h2 { font-size:clamp(3.6rem,7vw,7rem); margin:25px 0; }.years h2 em { color:#b8d899; }.years-intro > p { color:#d9dfd0; max-width:430px; font-size:15px; line-height:1.7; }.year-picker { display:grid; grid-template-columns:repeat(6,1fr); gap:9px; margin:60px 0 30px; }.year-button { min-height:105px; color:var(--paper); border:1px solid rgba(255,250,242,.4); background:transparent; font:400 clamp(1.6rem,3vw,2.8rem) "DM Serif Display",serif; cursor:pointer; transition:.25s; }.year-button span { display:block; font:10px "DM Mono",monospace; letter-spacing:.12em; text-transform:uppercase; margin-bottom:5px; }.year-button:hover,.year-button.active { background:#b8d899; color:var(--forest); border-color:#b8d899; transform:translateY(-5px); }.year-panel { display:none; animation:reveal .45s ease; }.year-panel.active { display:block; }.year-caption { font:italic 25px/1.3 "DM Serif Display",serif; margin:0 0 24px; color:#e4e6dc; }.year-photos { display:grid; grid-template-columns:1.25fr 1fr 1fr; gap:16px; }.year-photos figure { margin:0; }.gallery-photo { min-height:260px; padding:18px; display:grid; place-content:center; text-align:center; color:rgba(38,49,61,.65); border:1px dashed rgba(38,49,61,.4); font:11px/1.5 "DM Mono",monospace; text-transform:uppercase; letter-spacing:.1em; overflow:hidden; }.gallery-photo.photo-filled { padding:0; border:0; }.gallery-photo.photo-filled img { width:100%; height:100%; object-fit:cover; display:block; }.year-photos figure:first-child .gallery-photo { min-height:330px; }.gallery-photo span { font-size:27px; margin-top:7px; }.year-photos figcaption { font:italic 16px/1.3 "DM Serif Display",serif; padding:10px 4px 3px; color:#edf0e9; }.year-two-photos { grid-template-columns:repeat(3,minmax(0,1fr)); gap:7px; align-items:stretch; }.year-two-photos figure { display:grid; grid-template-rows:220px 58px; min-width:0; }.year-two-photos figure:first-child { grid-column:auto; }.year-two-photos figure:first-child .gallery-photo,.year-two-photos .gallery-photo { min-height:0; height:220px; }.year-two-photos figcaption { padding:8px 3px; overflow:hidden; }.coral-card{background:#d9ac8a}.lavender-card{background:#cbd8bf}.yellow-card{background:#e4d993}.mint-card{background:#b9d2bc}
+.memories { background:#f1eee7; }.section-heading { display:flex; justify-content:space-between; align-items:flex-start; }.memory-grid { margin-top:60px; display:grid; grid-template-columns:1.1fr .9fr .9fr; grid-template-rows:300px 300px; gap:20px; }.memory { margin:0; padding:16px; display:flex; flex-direction:column; justify-content:space-between; transform:rotate(var(--turn,0deg)); transition:transform .3s ease; }.memory:hover { transform:rotate(0) translateY(-7px); }.memory-tall { grid-row:span 2; --turn:-2deg; }.memory:nth-child(2){--turn:2deg}.memory:nth-child(3){--turn:-1deg}.memory:nth-child(4){--turn:1deg}.peach{background:#efad9f}.lavender{background:var(--lav)}.yellow{background:var(--yellow)}.mint{background:var(--mint)}.photo-placeholder { height:calc(100% - 38px); border:1px dashed rgba(38,49,61,.38); display:grid; place-content:center; text-align:center; color:rgba(38,49,61,.65); font:11px/1.5 "DM Mono",monospace; text-transform:uppercase; letter-spacing:.1em; }.photo-placeholder span { font-size:24px; margin-top:6px; }.memory p { margin:12px 0 0; font-size:12px; }
+.wish { min-height:80vh; background:#dbe6cc; display:flex; align-items:center; justify-content:space-between; gap:30px; overflow:hidden; }.wish-inner { position:relative; z-index:1; }.wish h2 { margin:22px 0 32px; }.wish-message { margin:20px 0 0; min-height:22px; font-family:"DM Serif Display",serif; font-size:21px; color:var(--moss); }.cake { position:relative; width:260px; height:260px; flex-shrink:0; }.cake-body { position:absolute; height:110px;width:210px;bottom:45px;left:25px;background:#789968;border-radius:14px 14px 36px 36px;display:flex;gap:42px;justify-content:center;padding-top:18px;overflow:hidden; }.cake-body span { width:16px;height:90px;background:#edf2db;border-radius:50%; }.cake-top { position:absolute;width:210px;height:40px;bottom:135px;left:25px;background:#fff9e8;border-radius:50%;z-index:1; }.cake-plate { position:absolute;width:245px;height:20px;bottom:34px;left:8px;background:#d5c778;border-radius:50%; }.wick { position:absolute;width:4px;height:27px;bottom:174px;left:128px;background:#333;z-index:2; }.flame { position:absolute;width:23px;height:37px;bottom:197px;left:119px;background:#ffd46d;border-radius:60% 40% 65% 35%;transform:rotate(45deg);z-index:3;box-shadow:0 0 27px #f7c463;animation:flicker .7s infinite alternate; }.flame.out{opacity:0;transform:scale(.1);transition:.45s}
+footer { padding:26px 7vw; background:var(--ink); color:var(--paper); font:10px "DM Mono",monospace; letter-spacing:.1em;text-transform:uppercase;text-align:center; }
+@keyframes float {50%{transform:translateY(-14px) rotate(14deg)}}@keyframes flicker {to{transform:rotate(45deg) scale(.85,1.1)}}
+@keyframes reveal { from {opacity:0; transform:translateY(10px)} to {opacity:1; transform:none} }
+@media(max-width:700px){.hero{padding:40px 8vw}.hero-orbit{opacity:.6}.section{padding:85px 8vw}.letter-layout{grid-template-columns:1fr;gap:35px}.year-picker{grid-template-columns:repeat(3,1fr);margin-top:42px}.year-button{min-height:80px}.year-photos{grid-template-columns:1fr 1fr;gap:10px}.gallery-photo,.year-photos figure:first-child .gallery-photo{min-height:180px}.year-photos figure:first-child{grid-column:span 2}.year-two-photos{grid-template-columns:1fr 1fr;gap:7px}.year-two-photos figure,.year-two-photos figure:first-child{grid-template-rows:170px 52px;grid-column:auto}.year-two-photos figure:first-child .gallery-photo,.year-two-photos .gallery-photo{height:170px;min-height:0}.year-two-photos figcaption{font-size:14px;padding:7px 2px}.section-heading{display:block}.section-heading h2{margin-top:30px}.memory-grid{grid-template-columns:1fr 1fr;grid-template-rows:260px 220px 220px;gap:12px}.memory-tall{grid-row:span 2}.memory:nth-child(4){grid-column:span 2}.wish{min-height:unset;display:block}.cake{margin:50px auto 0;width:220px;transform:scale(.85);transform-origin:top center;height:200px;margin-bottom:-25px}}
+
+/* Keep every photo intact and arrange each year around its natural proportions. */
+#year-1 .year-photos { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; align-items:start; }
+#year-1 .year-photos figure { width:100%; margin:0; }
+#year-1 .year-photos figure:nth-child(3) { grid-column:span 2; }
+.year-two-photos,
+#year-3 .year-photos,
+#year-4 .year-photos,
+#year-5 .year-photos,
+#year-6 .year-photos { display:block; columns:3; column-gap:16px; }
+.year-two-photos figure,
+#year-3 .year-photos figure,
+#year-4 .year-photos figure,
+#year-5 .year-photos figure,
+#year-6 .year-photos figure { display:inline-block; width:100%; margin:0 0 16px; break-inside:avoid; vertical-align:top; }
+.gallery-photo.photo-filled { min-height:0; padding:0; border:0; display:block; background:rgba(255,255,255,.08); }
+.gallery-photo.photo-filled img { width:100%; height:auto; object-fit:contain; display:block; }
+#year-1 .year-photos figure:first-child .gallery-photo,
+.year-two-photos figure:first-child .gallery-photo,
+.year-two-photos .gallery-photo,
+#year-3 .year-photos figure:first-child .gallery-photo,
+#year-4 .year-photos figure:first-child .gallery-photo,
+#year-5 .year-photos figure:first-child .gallery-photo,
+#year-6 .year-photos figure:first-child .gallery-photo { min-height:0; height:auto; }
+.gallery-video { display:block; width:100%; height:auto; background:#000; }
+.chat-archive { background:var(--forest); color:var(--paper); position:relative; overflow:hidden; }.chat-archive::before { content:"saved receipts"; position:absolute; right:-25px; top:120px; color:rgba(255,255,255,.06); font:italic clamp(5rem,15vw,14rem) "DM Serif Display",serif; transform:rotate(90deg); pointer-events:none; }.chat-archive-intro { max-width:720px; position:relative; }.chat-archive h2 { margin:25px 0; font-size:clamp(3.6rem,7vw,7rem); }.chat-archive h2 em { color:#b8d899; }.chat-archive-intro > p { max-width:440px; font-size:15px; line-height:1.7; color:#d9dfd0; }.chat-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:56px; position:relative; }.chat-card { min-height:220px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; border:1px solid rgba(37,55,45,.35); background:#f6f1e4; transform:rotate(var(--chat-turn,0deg)); transition:transform .25s ease,box-shadow .25s ease; }.chat-card:nth-child(2n){--chat-turn:1deg;background:#e6eddc}.chat-card:nth-child(3n){--chat-turn:-1deg;background:#f1d9cc}.chat-card:hover{transform:rotate(0) translateY(-5px);box-shadow:0 10px 22px rgba(37,55,45,.12)}.chat-card span { font:10px "DM Mono",monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--moss); }.chat-card p { margin:0; font:italic 21px/1.2 "DM Serif Display",serif; color:var(--ink); }.chat-grid.has-screenshots { display:block; columns:2; column-gap:28px; }.chat-screenshot { display:inline-block; width:100%; margin:0 0 30px; padding:10px 10px 14px; break-inside:avoid; background:#fffaf0; box-shadow:0 13px 28px rgba(0,0,0,.24); transform:rotate(var(--chat-turn,0deg)); transition:transform .25s ease,box-shadow .25s ease; cursor:zoom-in; position:relative; }.chat-screenshot::before { content:""; position:absolute; top:-8px; left:38%; width:26%; height:17px; background:rgba(234,219,149,.8); transform:rotate(-2deg); }.chat-screenshot:nth-child(3n+1){--chat-turn:-1.4deg}.chat-screenshot:nth-child(3n+2){--chat-turn:1deg}.chat-screenshot:nth-child(5n){--chat-turn:.5deg}.chat-screenshot:hover { transform:rotate(0) translateY(-7px) scale(1.015); box-shadow:0 20px 36px rgba(0,0,0,.32); }.chat-screenshot img { display:block; width:100%; height:auto; }.chat-lightbox { max-width:min(92vw,1000px); max-height:92vh; padding:12px; border:0; background:#fffaf0; box-shadow:0 24px 80px rgba(0,0,0,.45); }.chat-lightbox::backdrop { background:rgba(13,27,20,.82); }.chat-lightbox img { display:block; max-width:100%; max-height:calc(92vh - 24px); }.chat-lightbox-close { position:absolute; top:-15px; right:-15px; width:38px; height:38px; border:0; border-radius:50%; background:var(--yellow); color:var(--forest); font:28px/1 sans-serif; cursor:pointer; }
+@media(max-width:700px){.chat-grid{grid-template-columns:1fr 1fr;gap:10px;margin-top:40px}.chat-grid.has-screenshots{columns:1;column-gap:0}.chat-screenshot{margin-bottom:18px}.chat-card{min-height:170px;padding:15px}.chat-card p{font-size:18px}}
+@media(max-width:700px){#year-1 .year-photos{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}#year-1 .year-photos figure{margin:0}.year-two-photos,#year-3 .year-photos,#year-4 .year-photos,#year-5 .year-photos,#year-6 .year-photos{columns:2;column-gap:10px}.year-two-photos figure,#year-3 .year-photos figure,#year-4 .year-photos figure,#year-5 .year-photos figure,#year-6 .year-photos figure{margin-bottom:10px}.gallery-photo.photo-filled{min-height:0}.gallery-photo.photo-filled img{height:auto}}
+
+.memory-photo { width:100%; height:calc(100% - 38px); object-fit:cover; display:block; }
+.memory-tall .memory-photo { object-fit:contain; background:#efd7cf; }
+.memory-final { grid-column:span 3; --turn:-.5deg; background:#d9ac8a; }
+
+/* Let the landscape card size itself to the photo, and keep the final card compact. */
+.memory-grid { grid-template-rows:auto auto; }
+.memory-tall { grid-row:auto; grid-column:span 2; }
+.memory-tall .memory-photo { height:auto; object-fit:contain; background:transparent; }
+.memory-final { grid-column:auto; }
+@media(min-width:701px) { .memory-grid { grid-template-columns:1fr 1fr 1.25fr; } }
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A birthday surprise for my favourite person." />
+    <title>For శ్రుతిచందన ✦</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="leaf leaf-one">❋</div>
+        <div class="leaf leaf-two">❀</div>
+        <div class="leaf leaf-three">✽</div>
+        <p class="eyebrow">a tiny corner of the internet made just for you</p>
+        <p class="date">26 JULY · 2026</p>
+        <h1 id="hero-title">Happy birthday,<br /><em>శ్రుతిచందన.</em></h1>
+        <p class="hero-copy">Today, we celebrate the person who turns ordinary days into the kind of stories we never stop telling.</p>
+        <a class="scroll-link" href="#years">open our six-year story <span aria-hidden="true">↓</span></a>
+        <div class="hero-orbit orbit-a"></div>
+        <div class="hero-orbit orbit-b"></div>
+      </section>
+
+      <section class="letter section" id="letter">
+        <div class="section-number">01 / a note for you</div>
+        <div class="letter-layout">
+          <h2>Some people<br />feel like <em>a garden.</em></h2>
+          <div class="letter-copy">
+            <p>And somehow, you became mine. Thank you for every laugh that made my cheeks hurt, every late-night conversation, and every time you reminded me that life can be both messy and magical.</p>
+            <p>I hope this next year brings you soft mornings, more dhinchak nights, more internship opportunities, more creative ideas to make our lives aesthu, more patience to deal with my life as well, and a hundred little reasons to grin for no reason at all.</p>
+            <p class="signature">With all my love,<br />Your best friend ♡</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="years section" id="years" aria-labelledby="years-title">
+        <div class="years-intro">
+          <div class="section-number">02 / six years of us</div>
+          <h2 id="years-title">Pick a year.<br /><em>Let the memories bloom.</em></h2>
+          <p>Six chapters, thousands of inside jokes, and all my favourite versions of us.</p>
+        </div>
+        <div class="year-picker" role="tablist" aria-label="Choose a memory year">
+          <button class="year-button active" role="tab" aria-selected="true" aria-controls="year-1" data-year="year-1"><span>year</span>01</button>
+          <button class="year-button" role="tab" aria-selected="false" aria-controls="year-2" data-year="year-2"><span>year</span>02</button>
+          <button class="year-button" role="tab" aria-selected="false" aria-controls="year-3" data-year="year-3"><span>year</span>03</button>
+          <button class="year-button" role="tab" aria-selected="false" aria-controls="year-4" data-year="year-4"><span>year</span>04</button>
+          <button class="year-button" role="tab" aria-selected="false" aria-controls="year-5" data-year="year-5"><span>year</span>05</button>
+          <button class="year-button" role="tab" aria-selected="false" aria-controls="year-6" data-year="year-6"><span>year</span>06</button>
+        </div>
+        <div class="year-panels">
+          <div class="year-panel active" id="year-1" role="tabpanel"><p class="year-caption">The beginning — when we had no idea we'd become inseparable.</p><div class="year-photos"><figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-01-photo-01.png" alt="A first photo of us together" /></div><figcaption>one of our first few pics</figcaption></figure><figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-01-photo-02.png" alt="Wearing the bunny hairband" /></div><figcaption>the second week you dobbesood my bunny hairband</figcaption></figure><figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-01-photo-03.png" alt="A photo with Tanmayee" /></div><figcaption>picture with our most temporary third wheel...thanks ra Tanmayee :)</figcaption></figure></div></div>
+          <div class="year-panel" id="year-2" role="tabpanel"><p class="year-caption">Year two — more adventures, more stories, more us.</p><div class="year-photos year-two-photos"><figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-02-photo-01.jpeg" alt="A colourful Holi celebration together" /></div><figcaption>our most beautifool holi</figcaption></figure><figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-02-photo-02.jpeg" alt="Our first sleepover together" /></div><figcaption>first sleepover&lt;3333</figcaption></figure><figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-02-photo-03.jpeg" alt="Laughing together" /></div><figcaption>don't ask me why we were laughing</figcaption></figure><figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-02-photo-04.jpeg" alt="Matching Ganesh Chaturthi outfits" /></div><figcaption>matching ganesh chaturthi outfits lol</figcaption></figure><figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-02-photo-05.jpeg" alt="A make-up night" /></div><figcaption>make-up nighttt</figcaption></figure><figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-02-photo-06.jpeg" alt="Helping clean the bathroom at midnight" /></div><figcaption>bathroom cleaner akka...midnight helpp</figcaption></figure><figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-02-photo-07.jpeg" alt="A scooty ride together" /></div><figcaption>Scooty rides anydayyy</figcaption></figure><figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-02-photo-08.jpeg" alt="A silhouette photo in the garden" /></div><figcaption>remember our fav garden where we ate hakka noodless?</figcaption></figure><figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-02-photo-09.jpeg" alt="A smiling photo together" /></div><figcaption>smmm premaa istg</figcaption></figure><figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-02-photo-10.jpeg" alt="Chai on the terrace in the early morning" /></div><figcaption>early morning chai and terracee</figcaption></figure><figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-02-photo-11.jpeg" alt="Making Tang together" /></div><figcaption>Tang taagu bete</figcaption></figure><figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-02-photo-12.jpeg" alt="Christmas celebrations at the basketball court" /></div><figcaption>christmas celebs in basketball court with marfa dance lmao</figcaption></figure><figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-02-photo-13.jpg" alt="Tithi birthday photoshoot" /></div><figcaption>my tithi budday photoshoot</figcaption></figure><figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-02-photo-14.jpeg" alt="Birthday terrace dance" /></div><figcaption>my actual budday terrace danceee</figcaption></figure><figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-02-photo-15.jpeg" alt="Jeevana's birthday hairstylist moment" /></div><figcaption>Jeevana budday hairstylist</figcaption></figure></div></div>
+          <div class="year-panel" id="year-3" role="tabpanel"><p class="year-caption">Year three — still laughing at jokes nobody else gets.</p><div class="year-photos"><figure><div class="gallery-photo yellow-card">add photo<span>01</span></div><figcaption>our private comedy show</figcaption></figure><figure><div class="gallery-photo coral-card">add photo<span>02</span></div><figcaption>one more day to remember</figcaption></figure><figure><div class="gallery-photo mint-card">add photo<span>03</span></div><figcaption>the best kind of company</figcaption></figure></div></div>
+          <div class="year-panel" id="year-4" role="tabpanel"><p class="year-caption">Year four — a lot changed, but not us.</p><div class="year-photos"><figure><div class="gallery-photo lavender-card">add photo<span>01</span></div><figcaption>still right by your side</figcaption></figure><figure><div class="gallery-photo mint-card">add photo<span>02</span></div><figcaption>a moment worth keeping</figcaption></figure><figure><div class="gallery-photo yellow-card">add photo<span>03</span></div><figcaption>us, through every season</figcaption></figure></div></div>
+          <div class="year-panel" id="year-5" role="tabpanel"><p class="year-caption">Year five — another year of choosing each other.</p><div class="year-photos"><figure><div class="gallery-photo coral-card">add photo<span>01</span></div><figcaption>our forever kind of friendship</figcaption></figure><figure><div class="gallery-photo yellow-card">add photo<span>02</span></div><figcaption>making ordinary days magic</figcaption></figure><figure><div class="gallery-photo lavender-card">add photo<span>03</span></div><figcaption>one more core memory</figcaption></figure></div></div>
+          <div class="year-panel" id="year-6" role="tabpanel"><p class="year-caption">Year six — and you're still one of my favourite people.</p><div class="year-photos"><figure><div class="gallery-photo mint-card">add photo<span>01</span></div><figcaption>six years of this beautiful mess</figcaption></figure><figure><div class="gallery-photo coral-card">add photo<span>02</span></div><figcaption>my favourite person, always</figcaption></figure><figure><div class="gallery-photo yellow-card">add photo<span>03</span></div><figcaption>to many more chapters</figcaption></figure></div></div>
+        </div>
+      </section>
+
+      <section class="memories section" aria-labelledby="memories-title">
+        <div class="section-heading">
+          <div class="section-number">03 / proof we have the best time</div>
+          <h2 id="memories-title">Our <em>favourite</em><br />little moments</h2>
+        </div>
+        <div class="memory-grid">
+          <article class="memory memory-tall peach">
+            <img class="memory-photo" src="assets/photos/memory-01.png" alt="A special moment together" />
+            <p>The day I realised you were my ఆత్మ సహచరుడు</p>
+          </article>
+          <article class="memory lavender">
+            <img class="memory-photo" src="assets/photos/memory-02.png" alt="A day of unstoppable laughter together" />
+            <p>one of the best days where we couldn't STOP LAUGHING</p>
+          </article>
+          <article class="memory yellow">
+            <img class="memory-photo" src="assets/photos/memory-03.png" alt="A surprise day together" />
+            <p>best surprise dayyyy</p>
+          </article>
+          <article class="memory mint">
+            <img class="memory-photo" src="assets/photos/memory-04.png" alt="A traditional outfit moment together" />
+            <p>last ninne pelladatha</p>
+          </article>
+          <article class="memory memory-final coral">
+            <img class="memory-photo" src="assets/photos/memory-05.png" alt="A playful proposal photo in a garden" />
+            <p>ham aapse bohot pyaar karte hai</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="wish section" aria-labelledby="wish-title">
+        <div class="wish-inner">
+          <p class="eyebrow">one last thing</p>
+          <h2 id="wish-title">Make a wish,<br /><em>birthday girl.</em></h2>
+          <button class="wish-button" id="wishButton">blow out the candle <span aria-hidden="true">↗</span></button>
+          <p class="wish-message" id="wishMessage" aria-live="polite"></p>
+        </div>
+        <div class="cake" aria-hidden="true">
+          <div class="flame" id="flame"></div>
+          <div class="wick"></div>
+          <div class="cake-top"></div>
+          <div class="cake-body"><span></span><span></span><span></span></div>
+          <div class="cake-plate"></div>
+        </div>
+      </section>
+    </main>
+    <footer>made with big love, just for you ✦</footer>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+const button = document.querySelector('#wishButton');
+const flame = document.querySelector('#flame');
+const message = document.querySelector('#wishMessage');
+const yearButtons = document.querySelectorAll('.year-button');
+const yearPanels = document.querySelectorAll('.year-panel');
+
+const yearTwoGallery = document.querySelector('#year-2 .year-two-photos');
+yearTwoGallery.insertAdjacentHTML(
+  'beforeend',
+  '<figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-02-photo-16.jpeg" alt="Feet picture together" /></div><figcaption>FEET PICSS</figcaption></figure>'
+);
+
+const yearThreeCaptions = [
+  'terrace dance 2.0',
+  'skincareeeee',
+  'anni in bggg',
+  'rakshabandhan alasataa',
+  'honorary maddirala',
+  'obv had to take a lockscreen pic',
+  'sistiesss 2.0',
+  'first meetup after manipal separated us',
+  'caption akkharleee',
+  'holiii readyyy 2.0',
+  'Naanna shirt dongaaa',
+  'I love youu&lt;3',
+  'pls what was this',
+];
+const yearThreePhotos = yearThreeCaptions.map((caption, index) => {
+  const number = String(index + 1).padStart(2, '0');
+  return `<figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-03-photo-${number}.jpeg" alt="Year three memory ${number}" /></div><figcaption>${caption}</figcaption></figure>`;
+});
+document.querySelector('#year-3 .year-photos').innerHTML = yearThreePhotos.join('');
+
+const yearFourCaptions = [
+  'forever dance partner',
+  'pls what is this',
+  'us only',
+  'our fav hobby will always remain trying chapri glasses',
+  'odiyamma only',
+];
+const yearFourPhotos = yearFourCaptions.slice(0, 4).map((caption, index) => {
+  const number = String(index + 1).padStart(2, '0');
+  return `<figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-04-photo-${number}.jpeg" alt="Year four memory ${number}" /></div><figcaption>${caption}</figcaption></figure>`;
+});
+yearFourPhotos.push(`<figure><video class="gallery-video" controls preload="metadata"><source src="assets/photos/year-04-video-01.mp4" type="video/mp4" />Your browser does not support this video.</video><figcaption>${yearFourCaptions[4]}</figcaption></figure>`);
+document.querySelector('#year-4 .year-photos').innerHTML = yearFourPhotos.join('');
+
+const yearFiveCaptions = [
+  'pooja fit readyy untaam',
+  'reunionnnn',
+  'bye bye day to manipall',
+  'kaavalane lohith boy ni teesesa',
+  'can stare at you anydayy',
+  'lohith friend kukka elsaa and youuu',
+  'Abhi budday blue and whitess',
+  'cupcake paglus',
+  'burger king paglus',
+  'Goated nighty aunty group',
+  'aa roju ninnu scooty ninchi padeyle',
+  'last option nuvve ika',
+  'last day bglr:(',
+  'bangalore dayss',
+  'tindi ante maaku praanam',
+];
+const yearFiveMedia = yearFiveCaptions.map((caption, index) => {
+  const number = String(index + 1).padStart(2, '0');
+  return `<figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-05-photo-${number}.jpeg" alt="Year five memory ${number}" /></div><figcaption>${caption}</figcaption></figure>`;
+});
+const yearFiveVideos = {
+  '01': 'Kalyani vacchaaa',
+  '03': 'phool wali ladkiii',
+  '04': 'varshammmm',
+  '05': 'nighty auntiessss',
+};
+yearFiveMedia.push(...Object.entries(yearFiveVideos).map(([number, caption]) =>
+  `<figure><video class="gallery-video" controls preload="metadata"><source src="assets/photos/year-05-video-${number}.mp4" type="video/mp4" />Your browser does not support this video.</video><figcaption>${caption}</figcaption></figure>`
+));
+document.querySelector('#year-5 .year-photos').innerHTML = yearFiveMedia.join('');
+
+const yearSixCaptions = [
+  'aira paapa cutiee',
+  'bglr fit checkk',
+  'you can see our state',
+  'fit checkkk',
+  'og Anil mama car',
+  'kalyanamm',
+  'Dr Jeevana',
+  'mem iskcon bhaktulam',
+  'molestationnn',
+  'Vaniii',
+  'second piercing dayy',
+  'Karunyaa timeee',
+  'uk our fav hobby',
+  'Anni budday treatt',
+  'Zudio dayy',
+  'honorary Maddirala pt 2',
+  'a day after a very beautiful dayyy',
+  'I wanna pet you',
+  'loyal to our bk',
+  'Siri budday',
+  'pillalu oddu anta akkaki',
+  'sisties pt 3',
+];
+const yearSixMedia = Array.from({ length: 22 }, (_, index) => {
+  const number = String(index + 1).padStart(2, '0');
+  const caption = yearSixCaptions[index] || `year six memory ${number}`;
+  return `<figure><div class="gallery-photo photo-filled"><img src="assets/photos/year-06-photo-${number}.jpeg" alt="Year six memory ${number}" /></div><figcaption>${caption}</figcaption></figure>`;
+});
+const yearSixVideoCaptions = [
+  'second piercings againn',
+  'badal barsaaa',
+  'huggie teesss',
+  'flop vidd',
+];
+yearSixMedia.push(...yearSixVideoCaptions.map((caption, index) => {
+  const number = String(index + 1).padStart(2, '0');
+  return `<figure><video class="gallery-video" controls preload="metadata"><source src="assets/photos/year-06-video-${number}.mp4" type="video/mp4" />Your browser does not support this video.</video><figcaption>${caption}</figcaption></figure>`;
+}));
+document.querySelector('#year-6 .year-photos').innerHTML = yearSixMedia.join('');
+
+const chatArchive = document.createElement('section');
+chatArchive.className = 'chat-archive section';
+chatArchive.setAttribute('aria-labelledby', 'chat-archive-title');
+chatArchive.innerHTML = `
+  <div class="chat-archive-intro">
+    <div class="section-number">04 / little things I saved</div>
+    <h2 id="chat-archive-title">The chats I collected<br /><em>long agoo.</em></h2>
+    <p>The kind of messages that were too good to leave buried in the scroll.</p>
+  </div>
+  <div class="chat-grid">
+    ${Array.from({ length: 6 }, (_, index) => `<article class="chat-card"><span>chat ${String(index + 1).padStart(2, '0')}</span><p>add a chat screenshot</p></article>`).join('')}
+  </div>
+`;
+document.querySelector('.wish').before(chatArchive);
+
+const chatGrid = chatArchive.querySelector('.chat-grid');
+chatGrid.classList.add('has-screenshots');
+chatGrid.innerHTML = Array.from({ length: 27 }, (_, index) => {
+  const number = String(index + 1).padStart(2, '0');
+  return `<figure class="chat-screenshot"><img src="assets/photos/chat-${number}.jpeg" alt="Saved chat screenshot ${number}" /></figure>`;
+}).join('');
+
+const chatLightbox = document.createElement('dialog');
+chatLightbox.className = 'chat-lightbox';
+chatLightbox.innerHTML = '<button class="chat-lightbox-close" type="button" aria-label="Close enlarged chat">×</button><img alt="" />';
+document.body.append(chatLightbox);
+const chatLightboxImage = chatLightbox.querySelector('img');
+chatGrid.addEventListener('click', (event) => {
+  const image = event.target.closest('.chat-screenshot img');
+  if (!image) return;
+  chatLightboxImage.src = image.src;
+  chatLightboxImage.alt = image.alt;
+  chatLightbox.showModal();
+});
+chatLightbox.querySelector('.chat-lightbox-close').addEventListener('click', () => chatLightbox.close());
+chatLightbox.addEventListener('click', (event) => {
+  if (event.target === chatLightbox) chatLightbox.close();
+});
+
+button.addEventListener('click', () => {
+  flame.classList.add('out');
+  button.textContent = 'wish officially sent ✦';
+  button.disabled = true;
+  message.textContent = 'May this year be one of the bestest where you get all you want (including your boots) and all opportunities on earth so that you earn well and provide me with money. Since now you have set your teeth SMILE MORE bitch. Will see you super soon. Love ya<3';
+});
+
+yearButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    yearButtons.forEach((item) => {
+      item.classList.remove('active');
+      item.setAttribute('aria-selected', 'false');
+    });
+    yearPanels.forEach((panel) => panel.classList.remove('active'));
+    button.classList.add('active');
+    button.setAttribute('aria-selected', 'true');
+    document.querySelector(`#${button.dataset.year}`).classList.add('active');
+  });
+});
